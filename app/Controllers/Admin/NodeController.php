@@ -42,6 +42,10 @@ class NodeController extends AdminController
         $node->name =  $request->getParam('name');
         $node->server =  trim($request->getParam('server'));
         $node->method =  $request->getParam('method');
+        $node->protocol =  $request->getParam('protocol');
+        $node->obfs =  $request->getParam('obfs');
+        $node->port =  $request->getParam('port');
+        $node->passwd =  $request->getParam('passwd');
         $node->custom_method =  $request->getParam('custom_method');
         $node->custom_rss =  $request->getParam('custom_rss');
         $node->mu_only =  $request->getParam('mu_only');
@@ -107,6 +111,10 @@ class NodeController extends AdminController
         $node->node_group =  $request->getParam('group');
         $node->server =  trim($request->getParam('server'));
         $node->method =  $request->getParam('method');
+        $node->protocol =  $request->getParam('protocol');
+        $node->obfs =  $request->getParam('obfs');
+        $node->port =  $request->getParam('port');
+        $node->passwd =  $request->getParam('passwd');
         $node->custom_method =  $request->getParam('custom_method');
         $node->custom_rss =  $request->getParam('custom_rss');
         $node->mu_only =  $request->getParam('mu_only');
@@ -120,14 +128,14 @@ class NodeController extends AdminController
         if ($node->sort == 0 || $node->sort == 1 || $node->sort == 10 || $node->sort == 11) {
             if ($req_node_ip != '') {
                 $node->node_ip = $req_node_ip;
-            } 
+            }
 			else {
                 if ($node->isNodeOnline()) {
                     $succ = false;
                     if ($node->sort == 11) {
                         $server_list = explode(";", $request->getParam('server'));
                         $succ = $node->changeNodeIp($server_list[0]);
-                    } 
+                    }
 					else {
                         $succ = $node->changeNodeIp($request->getParam('server'));
                     }
@@ -142,13 +150,13 @@ class NodeController extends AdminController
 					if ($node->sort == 11) {
 						$server_list = explode(";", $request->getParam('server'));
 						$node->node_ip = gethostbyname($server_list[0]);
-					} 
+					}
 					else {
 						$node->node_ip = gethostbyname($request->getParam('server'));
 					}
 				}
             }
-        } 
+        }
 		else {
             $node->node_ip="";
         }
@@ -163,7 +171,7 @@ class NodeController extends AdminController
                 if (time()-$SS_Node->node_heartbeat<300||$SS_Node->node_heartbeat==0) {
                     Radius::AddNas(gethostbyname($request->getParam('server')), $request->getParam('server'));
                 }
-            } 
+            }
 			else {
                 Radius::AddNas(gethostbyname($request->getParam('server')), $request->getParam('server'));
             }

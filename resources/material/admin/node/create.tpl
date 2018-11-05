@@ -35,10 +35,21 @@
 										<label class="floating-label" for="server">节点IP(不填则自动获取，填写请按照 <a href="https://github.com/esdeathlove/ss-panel-v3-mod/wiki/%E8%8A%82%E7%82%B9IP%E5%A1%AB%E5%86%99%E8%A7%84%E5%88%99">这里</a> 的规则进行填写)</label>
 										<input class="form-control" id="node_ip" name="node_ip" type="text">
 									</div>
-
-									<div class="form-group form-group-label" hidden="hidden">
+                                    <div class="form-group form-group-label" >
+                                        <label class="floating-label" for="port">多用户端口</label>
+                                        <input class="form-control" id="port" type="text" name="port" value="80">
+                                    </div>
+                                    <div class="form-group form-group-label" >
 										<label class="floating-label" for="method">加密方式</label>
 										<input class="form-control" id="method" type="text" name="method" value="aes-256-cfb">
+									</div>
+                                    <div class="form-group form-group-label" >
+										<label class="floating-label" for="obfs">混淆</label>
+										<input class="form-control" id="obfs" type="text" name="obfs" value="http_simple">
+									</div>
+                                    <div class="form-group form-group-label" >
+										<label class="floating-label" for="protocol">混淆协议</label>
+										<input class="form-control" id="protocol" type="text" name="protocol" value="auth_aes128_md5">
 									</div>
 
 									<div class="form-group form-group-label">
@@ -247,8 +258,11 @@
                 data: {
                     name: $("#name").val(),
                     server: $("#server").val(),
-										node_ip: $("#node_ip").val(),
+					node_ip: $("#node_ip").val(),
                     method: $("#method").val(),
+                    port: $("#port").val(),
+                    obfs: $("#obfs").val(),
+                    protocol: $("#protocol").val(),
                     custom_method: custom_method,
                     rate: $("#rate").val(),
                     info: $("#info").val(),

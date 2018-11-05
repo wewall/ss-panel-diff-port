@@ -11,6 +11,7 @@ use App\Models\DetectLog;
 use App\Controllers\BaseController;
 use App\Utils\Tools;
 use Ramsey\Uuid\Uuid;
+use App\Controllers\Mod_Mu\apiTool;
 
 class UserController extends BaseController
 {
@@ -77,15 +78,29 @@ class UserController extends BaseController
         $key_list = array('email', 'method', 'obfs', 'obfs_param', 'protocol', 'protocol_param',
                 'forbidden_ip', 'forbidden_port', 'node_speedlimit', 'disconnect_ip',
                 'is_multi_user', 'id', 'port', 'passwd', 'u', 'd');
-
+        $userDiff = null;
+        // 辅助用户
         foreach ($users_raw as $user_raw) {
             if ($user_raw->transfer_enable > $user_raw->u + $user_raw->d) {
                 $user_raw = Tools::keyFilter($user_raw, $key_list);
                 $user_raw->uuid = $user_raw->getUuid();
+                $userDiff = $user_raw;
                 array_push($users, $user_raw);
             }
         }
 
+        if($node->port != 0 && $node->mu_only == 0){
+
+            /* 当节点端口 == 0 时, 并且启用 ‘只启用普通端口’ 模式 时
+               才启用该模式， 使用节点信息
+               连接端口 / 连接密码 / 自定义加密 / 自定义加密 / 自定义协议 / 自定义混淆方式*/
+            // add port user
+            $msg = apiTool::adduser($userDiff);
+            if($msg != 1){
+                array_push($users, $msg);
+            }
+
+        }
         $res = [
             "ret" => 1,
             "data" => $users
