@@ -78,8 +78,7 @@ class UserController extends BaseController
         $key_list = array('email', 'method', 'obfs', 'obfs_param', 'protocol', 'protocol_param',
                 'forbidden_ip', 'forbidden_port', 'node_speedlimit', 'disconnect_ip',
                 'is_multi_user', 'id', 'port', 'passwd', 'u', 'd');
-        $userDiff = null;
-        // 辅助用户
+
         foreach ($users_raw as $user_raw) {
             if ($user_raw->transfer_enable > $user_raw->u + $user_raw->d) {
                 $user_raw = Tools::keyFilter($user_raw, $key_list);
@@ -95,11 +94,9 @@ class UserController extends BaseController
                才启用该模式， 使用节点信息
                连接端口 / 连接密码 / 自定义加密 / 自定义加密 / 自定义协议 / 自定义混淆方式*/
             // add port user
-            $msg = apiTool::adduser($userDiff);
-            if($msg != 1){
-                array_push($users, $msg);
-            }
-
+          	$diffPort = clone $users[count($users) - 1];
+            $msg = apiTool::adduser($diffPort, $node);
+          	array_push($users, $msg);
         }
         $res = [
             "ret" => 1,
