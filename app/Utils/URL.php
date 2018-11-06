@@ -466,7 +466,7 @@ class URL
         if ($relay_rule != null) {
             $node_name .= " - ".$relay_rule->dist_node()->name;
         }
-        if($node->port != 0 && $node->mu_only == 0){
+        if($node->port != 0 && $node->mu_only == 1){
             $return_array['address'] = $node->server;
             $return_array['port'] = $node->port;
             $return_array['passwd'] = $node->passwd;
@@ -487,7 +487,7 @@ class URL
             $mu_user->obfs_param = $user->getMuMd5();
             $mu_user->protocol_param = $user->id.":".$user->passwd;
             $user = $mu_user;
-            
+
         }
         if($is_ss) {
             if(!URL::SSCanConnect($user)) {
