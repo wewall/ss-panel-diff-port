@@ -186,6 +186,13 @@ class URL
             $relay_rules = array();
         }
         foreach ($nodes as $node) {
+            if($node->port != 0 && $node->mu_only == 1){
+                $item = URL::getItem($user, $node);
+                if($item != null) {
+                    array_push($return_array, $item);
+                }
+                continue;
+            }
             if ($node->mu_only != 1 && $is_mu == 0) {
                 if ($node->sort == 10) {
                     $relay_rule_id = 0;
