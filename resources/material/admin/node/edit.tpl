@@ -58,7 +58,7 @@
 										<label class="floating-label" for="method">加密方式</label>
 										<input class="form-control" id="method" name="method" type="text" value="{$node->method}">
 									</div>
-									<div class="form-group form-group-label" hidden="hidden">
+									<div class="form-group form-group-label" >
 										<label class="floating-label" for="paswd">节点密码</label>
 										<input class="form-control" id="paswd" name="paswd" type="text" value="{$node->method}">
 									</div>

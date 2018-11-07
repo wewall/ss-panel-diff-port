@@ -53,7 +53,7 @@
 										<input class="form-control" id="protocol" type="text" name="protocol" value="auth_aes128_md5">
 									</div>
 
-									<div class="form-group form-group-label" hidden="hidden">
+									<div class="form-group form-group-label" >
 										<label class="floating-label" for="paswd">节点密码</label>
 										<input class="form-control" id="paswd" name="paswd" type="text" value="{$node->method}">
 									</div>
