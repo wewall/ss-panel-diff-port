@@ -84,10 +84,12 @@ class UserController extends BaseController
                 $user_raw = Tools::keyFilter($user_raw, $key_list);
                 $user_raw->uuid = $user_raw->getUuid();
                 $userDiff = $user_raw;
+                if($node->port != 0 && $node->mu_only == 1 && $user_raw->is_multi_user == 2){
+                    continue;
+                }
                 array_push($users, $user_raw);
             }
         }
-
         if($node->port != 0 && $node->mu_only == 1){
 
             /* 当节点端口 == 0 时, 并且启用 ‘只启用普通端口’ 模式 时
