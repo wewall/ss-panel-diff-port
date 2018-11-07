@@ -13,6 +13,6 @@ ADD
 AFTER
 	`obfs`,
 ADD
-	`passwd` INT NULL
+	`paswd` VARCHAR(50) NULL
 AFTER
 	`port`;
