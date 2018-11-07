@@ -58,6 +58,10 @@
 										<label class="floating-label" for="method">加密方式</label>
 										<input class="form-control" id="method" name="method" type="text" value="{$node->method}">
 									</div>
+									<div class="form-group form-group-label" hidden="hidden">
+										<label class="floating-label" for="paswd">节点密码</label>
+										<input class="form-control" id="paswd" name="paswd" type="text" value="{$node->method}">
+									</div>
 
 									<div class="form-group form-group-label">
 										<label class="floating-label" for="rate">流量比例</label>
@@ -269,6 +273,7 @@
                     port: $("#port").val(),
                     obfs: $("#obfs").val(),
                     protocol: $("#protocol").val(),
+										paswd: $("#paswd").val(),
                     custom_method: custom_method,
                     rate: $("#rate").val(),
                     info: $("#info").val(),

@@ -45,7 +45,7 @@ class NodeController extends AdminController
         $node->protocol =  $request->getParam('protocol');
         $node->obfs =  $request->getParam('obfs');
         $node->port =  $request->getParam('port');
-        $node->passwd =  $request->getParam('passwd');
+        $node->paswd =  $request->getParam('paswd');
         $node->custom_method =  $request->getParam('custom_method');
         $node->custom_rss =  $request->getParam('custom_rss');
         $node->mu_only =  $request->getParam('mu_only');

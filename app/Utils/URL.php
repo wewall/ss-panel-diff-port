@@ -476,7 +476,7 @@ class URL
         if($node->port != 0 && $node->mu_only == 1){
             $return_array['address'] = $node->server;
             $return_array['port'] = $node->port;
-            $return_array['passwd'] = $node->passwd;
+            $return_array['passwd'] = $node->paswd;
             $return_array['method'] = $node->method;
             $return_array['remark'] = $node_name;
             $return_array['protocol'] = $node->protocol;

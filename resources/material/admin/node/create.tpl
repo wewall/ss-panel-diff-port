@@ -43,6 +43,7 @@
 										<label class="floating-label" for="method">加密方式</label>
 										<input class="form-control" id="method" type="text" name="method" value="aes-256-cfb">
 									</div>
+
                                     <div class="form-group form-group-label" >
 										<label class="floating-label" for="obfs">混淆</label>
 										<input class="form-control" id="obfs" type="text" name="obfs" value="http_simple">
@@ -52,6 +53,10 @@
 										<input class="form-control" id="protocol" type="text" name="protocol" value="auth_aes128_md5">
 									</div>
 
+									<div class="form-group form-group-label" hidden="hidden">
+										<label class="floating-label" for="paswd">节点密码</label>
+										<input class="form-control" id="paswd" name="paswd" type="text" value="{$node->method}">
+									</div>
 									<div class="form-group form-group-label">
 										<label class="floating-label" for="rate">流量比例</label>
 										<input class="form-control" id="rate" type="text" name="rate" value="1">
@@ -263,6 +268,7 @@
                     port: $("#port").val(),
                     obfs: $("#obfs").val(),
                     protocol: $("#protocol").val(),
+										paswd: $("#paswd").val(),
                     custom_method: custom_method,
                     rate: $("#rate").val(),
                     info: $("#info").val(),
