@@ -10,9 +10,9 @@
 
 `cp ../ss-panel-diff-port/app/Utils/URL.php app/Utils/URL.php -f`
 
-`cp ../ss-panel-diff-port/resources/material/admin/node/create.tpl resources/material/admin/node/create.tpl -f`
+`cp ../ss-panel-diff-port/resources/material/admin/node/create.tpl resources/views/material/admin/node/create.tpl -f`
 
-`cp ../ss-panel-diff-port/resources/material/admin/node/edit.tpl resources/material/admin/node/edit.tpl -f`
+`cp ../ss-panel-diff-port/resources/material/admin/node/edit.tpl resources/views/material/admin/node/edit.tpl -f`
 
 `cp ../ss-panel-diff-port/app/Controllers/Mod_Mu/UserController.php app/Controllers/Mod_Mu/UserController.php -f`
 
