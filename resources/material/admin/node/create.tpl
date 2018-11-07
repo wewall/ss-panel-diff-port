@@ -55,7 +55,7 @@
 
 									<div class="form-group form-group-label" >
 										<label class="floating-label" for="paswd">节点密码</label>
-										<input class="form-control" id="paswd" name="paswd" type="text" value="{$node->method}">
+										<input class="form-control" id="paswd" name="paswd" type="text" value="{$node->paswd}">
 									</div>
 									<div class="form-group form-group-label">
 										<label class="floating-label" for="rate">流量比例</label>
