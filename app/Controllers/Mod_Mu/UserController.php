@@ -92,7 +92,7 @@ class UserController extends BaseController
         }
         if($node->port != 0 && $node->mu_only == 1){
 
-            /* 当节点端口 == 0 时, 并且启用 ‘只启用普通端口’ 模式 时
+            /* 当节点端口 != 0 时, 并且启用 ‘只启用普通端口’ 模式 时
                才启用该模式， 使用节点信息
                连接端口 / 连接密码 / 自定义加密 / 自定义加密 / 自定义协议 / 自定义混淆方式*/
             // add port user

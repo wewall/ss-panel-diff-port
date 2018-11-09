@@ -27,3 +27,7 @@
 `cp ../ss-panel-diff-port/app/Controllers/Mod_Mu/apiTool.php app/Controllers/Mod_Mu/apiTool.php -f`
 
 `cp ../ss-panel-diff-port/app/Utils/URL.php app/Utils/URL.php -f`
+
+# 节点配置
+
+当节点端口 != 0 时, 并且启用 ‘只启用普通端口’ 模式 时
