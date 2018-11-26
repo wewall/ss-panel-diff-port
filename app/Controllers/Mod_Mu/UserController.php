@@ -10,7 +10,6 @@ use App\Models\Ip;
 use App\Models\DetectLog;
 use App\Controllers\BaseController;
 use App\Utils\Tools;
-use Ramsey\Uuid\Uuid;
 use App\Controllers\Mod_Mu\apiTool;
 
 class UserController extends BaseController
@@ -82,7 +81,7 @@ class UserController extends BaseController
         foreach ($users_raw as $user_raw) {
             if ($user_raw->transfer_enable > $user_raw->u + $user_raw->d) {
                 $user_raw = Tools::keyFilter($user_raw, $key_list);
-                $user_raw->uuid = $user_raw->getUuid();
+                $user_raw->uuid = $user_raw->getUuid();# 如果是旧版本没有 v2ray 功能 请注释此行
                 $userDiff = $user_raw;
                 if($node->port != 0 && $node->mu_only == 1 && $user_raw->is_multi_user == 2){
                     continue;

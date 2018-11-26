@@ -268,7 +268,7 @@
                 data: {
                     name: $("#name").val(),
                     server: $("#server").val(),
-					node_ip: $("#node_ip").val(),
+										node_ip: $("#node_ip").val(),
                     method: $("#method").val(),
                     port: $("#port").val(),
                     obfs: $("#obfs").val(),
